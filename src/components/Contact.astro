@@ -1,0 +1,282 @@
+---
+---
+
+<section id="contact" class="py-20">
+  <div class="section-container">
+    <h2 class="section-title" data-aos="fade-right">Contacto</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div class="contact-form-container" data-aos="fade-right" data-aos-delay="100">
+        <div id="alert-container" class="mb-4 hidden"></div>
+        
+        <form id="contact-form" class="contact-form">
+          <div class="form-group">
+            <label for="from_name">Nombre</label>
+            <input 
+              type="text" 
+              id="from_name" 
+              name="from_name" 
+              placeholder="Tu nombre" 
+              required 
+              class="form-input"
+            />
+          </div>
+          
+          <div class="form-group">
+            <label for="from_email">Correo electrónico</label>
+            <input 
+              type="email" 
+              id="from_email" 
+              name="from_email" 
+              placeholder="tu@email.com" 
+              required 
+              class="form-input"
+            />
+          </div>
+          
+          <div class="form-group">
+            <label for="subject">Asunto</label>
+            <input 
+              type="text" 
+              id="subject" 
+              name="subject" 
+              placeholder="Asunto del mensaje" 
+              required 
+              class="form-input"
+            />
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Mensaje</label>
+            <textarea 
+              id="message" 
+              name="message" 
+              rows="5" 
+              placeholder="Escribe tu mensaje aquí..." 
+              required 
+              class="form-input"
+            ></textarea>
+          </div>
+          
+          <button type="submit" class="btn-neon w-full">
+            <span class="flex items-center justify-center gap-2">
+              Enviar mensaje
+              <i class="fas fa-paper-plane"></i>
+            </span>
+          </button>
+        </form>
+      </div>
+      
+      <div class="contact-info" data-aos="fade-left" data-aos-delay="200">
+        <h3 class="text-2xl font-bold mb-6">Conectemos</h3>
+        
+        <p class="text-gray-300 mb-8">
+          ¿Tienes alguna pregunta o quieres colaborar en un proyecto? No dudes en contactarme a través del formulario o mis redes sociales.
+        </p>
+        
+        <div class="space-y-6">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div>
+              <h4 class="contact-label">Ubicación</h4>
+              <p>Concepción, Chile</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div>
+              <h4 class="contact-label">Email</h4>
+              <p>contacto@example.com</p>
+            </div>
+          </div>
+        </div>
+        
+        <h3 class="text-xl font-bold mt-10 mb-4">Redes Sociales</h3>
+        
+        <div class="social-links">
+          <a href="https://github.com/RazeZor" class="social-link" target="_blank" rel="noopener">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/nacho-javier-831811295/" class="social-link" target="_blank" rel="noopener">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://www.instagram.com/nachodevsc/" class="social-link" target="_blank" rel="noopener">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-form-container {
+    background-color: #1E1E1E;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .form-input:focus {
+    outline: none;
+    border-color: #8506ce;
+    box-shadow: 0 0 0 2px rgba(20, 241, 149, 0.2);
+  }
+  
+  .form-input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(20, 241, 149, 0.1);
+    color: #5865F2;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  
+  .contact-label {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+    color: #fff;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: #252525;
+    color: #fff;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    font-size: 1.25rem;
+  }
+  
+  .social-link:hover {
+    background-color: #8506ce;
+    color: #fff;
+    transform: translateY(-5px);
+  }
+  
+  .alert {
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+  }
+  
+  .alert-success {
+    background-color: rgba(20, 241, 149, 0.1);
+    border: 1px solid #14F195;
+    color: #14F195;
+  }
+  
+  .alert-error {
+    background-color: rgba(255, 99, 71, 0.1);
+    border: 1px solid tomato;
+    color: tomato;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // EmailJS setup
+    function setupEmailJS() {
+      if (window.emailjs) {
+        // Replace with your actual EmailJS public key if you have one
+        window.emailjs.init("YOUR_PUBLIC_KEY");
+      }
+    }
+    
+    setupEmailJS();
+    
+    // Form submission
+    const contactForm = document.getElementById('contact-form');
+    const alertContainer = document.getElementById('alert-container');
+    
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Show submitting state
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+        submitBtn.disabled = true;
+        
+        // In a real implementation, you would use EmailJS to send the email
+        // For this example, we'll simulate a successful submission
+        
+        setTimeout(() => {
+          // Show success message
+          if (alertContainer) {
+            alertContainer.classList.remove('hidden');
+            alertContainer.innerHTML = `
+              <div class="alert alert-success">
+                <i class="fas fa-check-circle mr-2"></i>
+                ¡Mensaje enviado con éxito! Te responderé a la brevedad.
+              </div>
+            `;
+          }
+          
+          // Reset form
+          contactForm.reset();
+          
+          // Reset button
+          submitBtn.innerHTML = originalBtnText;
+          submitBtn.disabled = false;
+          
+          // Hide alert after 5 seconds
+          setTimeout(() => {
+            if (alertContainer) {
+              alertContainer.classList.add('hidden');
+            }
+          }, 5000);
+        }, 1500);
+      });
+    }
+  });
+</script>

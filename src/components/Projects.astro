@@ -1,0 +1,269 @@
+---
+const projects = [
+  {
+    title: "Sala Audio",
+    description: "Plataforma web para gestión de salas de ensayo musical, permitiendo reservas, administración de equipos y facturación.",
+    image: "./src/assets/SalaEnsayo.jpg",
+    category: "web",
+    technologies: ["HTML", "CSS", "JavaScript", "PHP"],
+    link: "https://feriasoftwareconcepcion.cl/TSI/grupo2/SalaAudioGIT/Index.php"
+  },
+  {
+    title: "App Android",
+    description: "Aplicación móvil para Android que permite a músicos encontrar compañeros de banda y organizar sesiones de jam.",
+    image: "./src/assets/Untitled.png",
+    category: "mobile",
+    technologies: ["Kotlin", "Firebase", "Android SDK"],
+    github: "https://github.com/RazeZor/Proyecto_Slam_Jam"
+  },
+  {
+    title: "Portafolio Cliente",
+    description: "Sitio web de portafolio profesional desarrollado para un cliente, con diseño moderno y optimizado para SEO.",
+    image: "./src/assets/image.png",
+    category: "web",
+    technologies: ["Astro", "JavaScript", "CSS"],
+    link: "https://tssaraiabigail.vercel.app/"
+  }
+];
+---
+
+<section id="projects" class="bg-dark-light py-20">
+  <div class="section-container">
+    <h2 class="section-title" data-aos="fade-right">Proyectos</h2>
+    
+    <div class="project-filters mb-10" data-aos="fade-up">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="web">Web</button>
+      <button class="filter-btn" data-filter="mobile">Móvil</button>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 projects-grid">
+      {projects.map((project, index) => (
+        <div 
+          class="project-card" 
+          data-category={project.category}
+          data-aos="fade-up"
+          data-aos-delay={index * 100}
+        >
+          <div class="project-image">
+            <img src={project.image} alt={project.title} loading="lazy" />
+            <div class="project-overlay">
+              <div class="project-links">
+                {project.link && (
+                  <a href={project.link} class="project-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                )}
+                {project.github && (
+                  <a href={project.github} class="project-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i>
+                  </a>
+                )}
+              </div>
+            </div>
+            <div class="project-category">{project.category}</div>
+          </div>
+          
+          <div class="project-content">
+            <h3 class="project-title">{project.title}</h3>
+            <p class="project-description">{project.description}</p>
+            <div class="project-technologies">
+              {project.technologies.map(tech => (
+                <span class="project-tech">{tech}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .project-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .filter-btn {
+    padding: 0.5rem 1.5rem;
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .filter-btn:hover {
+    background-color: rgba(20, 241, 149, 0.1);
+    border-color: #7200be;
+    color: #fff;
+  }
+  
+  .filter-btn.active {
+    background-color: #7200be;
+    border-color: #7200be;
+    color: #fff;
+  }
+  
+  .project-card {
+    background-color: #252525;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+  
+  .project-image {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+  }
+  
+  .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .project-card:hover .project-image img {
+    transform: scale(1.1);
+  }
+  
+  .project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .project-card:hover .project-overlay {
+    opacity: 1;
+  }
+  
+  .project-links {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .project-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #7200be;
+    color: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .project-link:hover {
+    transform: translateY(-5px);
+    background-color: #fff;
+    color: #7200be;
+  }
+  
+  .project-category {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.25rem 0.75rem;
+    background-color: #5865F2;
+    color: #fff;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  
+  .project-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .project-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #fff;
+  }
+  
+  .project-description {
+    color: #fff;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+  }
+  
+  .project-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .project-tech {
+    padding: 0.25rem 0.5rem;
+    background-color:#5865F2;
+    color: #ffffff;
+    border-radius: 4px;
+    font-size: 0.75rem;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        
+        // Add active class to clicked button
+        button.classList.add('active');
+        
+        // Get filter value
+        const filterValue = button.getAttribute('data-filter');
+        
+        // Filter projects
+        projectCards.forEach(card => {
+          if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+            card.style.display = 'block';
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, 100);
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+              card.style.display = 'none';
+            }, 300);
+          }
+        });
+      });
+    });
+  });
+</script>

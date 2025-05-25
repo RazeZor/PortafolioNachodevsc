@@ -1,0 +1,235 @@
+---
+const skillCategories = [
+  {
+    id: "fullstack",
+    name: "Full Stack",
+    skills: [
+      {
+        name: "Python",
+        icon: "fab fa-python",
+        details: ["POO", "APIs con Flask & REST API", "Estructura de Datos"]
+      },
+      {
+        name: "Django",
+        icon: "fas fa-server",
+        details: ["Django REST Framework", "ORM & Modelos", "Autenticación & Seguridad"]
+      },
+      {
+        name: "SQL",
+        icon: "fas fa-database",
+        details: ["SQLite", "MySQL", "SQL Server"]
+      }
+    ]
+  },
+  {
+    id: "frontend",
+    name: "Frontend",
+    skills: [
+      {
+        name: "HTML & CSS",
+        icon: "fab fa-html5",
+        details: ["Diseño Responsivo", "Flexbox & Grid", "Animaciones"]
+      },
+      {
+        name: "JavaScript",
+        icon: "fab fa-js",
+        details: ["Chart.js", "DOM Manipulation", "Async/Await"]
+      }
+    ]
+  },
+  {
+    id: "data",
+    name: "Ciencia de Datos",
+    skills: [
+      {
+        name: "Análisis de Datos",
+        icon: "fas fa-chart-bar",
+        details: ["Pandas & NumPy", "Visualización con matplotlib", "Manejo de CSV & Excel"]
+      }
+    ]
+  },
+  {
+    id: "mobile",
+    name: "Móvil",
+    skills: [
+      {
+        name: "Android Studio",
+        icon: "fab fa-android",
+        details: ["Kotlin", "Firebase", "XML"]
+      }
+    ]
+  }
+];
+---
+
+<section id="skills" class="py-20">
+  <div class="section-container">
+    <h2 class="section-title" data-aos="fade-right">Habilidades</h2>
+    
+    <div class="skill-tabs-container">
+      <div class="skill-tabs" data-aos="fade-up">
+        {skillCategories.map((category, index) => (
+          <button 
+            class={`skill-tab ${index === 0 ? 'active' : ''}`} 
+            data-tab={category.id}
+          >
+            {category.name}
+          </button>
+        ))}
+      </div>
+      
+      <div class="skill-content-container mt-10">
+        {skillCategories.map((category, index) => (
+          <div 
+            id={`${category.id}-content`} 
+            class={`skill-content ${index === 0 ? 'active' : ''}`}
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {category.skills.map(skill => (
+                <div class="skill-card">
+                  <div class="skill-icon">
+                    <i class={skill.icon}></i>
+                  </div>
+                  <h3 class="skill-name">{skill.name}</h3>
+                  <div class="skill-details">
+                    <ul>
+                      {skill.details.map(detail => (
+                        <li>{detail}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .skill-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+  }
+  
+  .skill-tab {
+    padding: 0.75rem 1.5rem;
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+  }
+  
+  .skill-tab:hover {
+    background-color: rgba(20, 241, 149, 0.1);
+    color: #d714f1;
+  }
+  
+  .skill-tab.active {
+    background-color: rgba(20, 241, 149, 0.1);
+    color: #d714f1;
+    border-bottom: 2px solid #d714f1;
+  }
+  
+  .skill-content {
+    display: none;
+  }
+  
+  .skill-content.active {
+    display: block;
+  }
+  
+  .skill-card {
+    background-color: #1E1E1E;
+    border-radius: 8px;
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+  }
+  
+  .skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, #5865F2, #5865F2);
+  }
+  
+  .skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .skill-icon {
+    font-size: 2.5rem;
+    color: #5865F2;
+    margin-bottom: 1rem;
+  }
+  
+  .skill-name {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .skill-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .skill-details li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .skill-details li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #5865F2;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const tabs = document.querySelectorAll('.skill-tab');
+    
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Remove active class from all tabs
+        tabs.forEach(t => t.classList.remove('active'));
+        
+        // Add active class to clicked tab
+        tab.classList.add('active');
+        
+        // Hide all content sections
+        const contentSections = document.querySelectorAll('.skill-content');
+        contentSections.forEach(section => section.classList.remove('active'));
+        
+        // Show content section corresponding to clicked tab
+        const tabId = tab.getAttribute('data-tab');
+        const contentToShow = document.getElementById(`${tabId}-content`);
+        if (contentToShow) {
+          contentToShow.classList.add('active');
+        }
+      });
+    });
+  });
+</script>

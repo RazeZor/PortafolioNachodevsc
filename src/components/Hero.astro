@@ -1,0 +1,146 @@
+---
+---
+
+<section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
+  <div id="particles-container" class="absolute inset-0 z-0"></div>
+  <div class="container mx-auto px-4 z-10">
+    <div class="max-w-3xl">
+      <h3 class="text-purple-600 text-xl mb-4" data-aos="fade-up">Hola, soy</h3>
+      <h1 class="text-5xl md:text-7xl font-bold mb-6" data-aos="fade-up" data-aos-delay="100">
+        Ignacio Castillo
+      </h1>
+      <div class="text-2xl md:text-3xl mb-8" data-aos="fade-up" data-aos-delay="200">
+        <span id="typed-text"></span>
+        <span class="cursor">|</span>
+      </div>
+      <div class="flex flex-wrap gap-4" data-aos="fade-up" data-aos-delay="300">
+        <a href="#projects" class="btn-neon">Ver Proyectos</a>
+        <a href="#contact" class="btn-neon btn-secondary">Descargar CV</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="absolute bottom-10 left-0 right-0 flex justify-center items-center z-10" data-aos="fade-up" data-aos-delay="400">
+    <a href="#about" class="scroll-indicator flex flex-col items-center text-white/60 hover:text-primary transition-colors">
+      <span class="mb-2">Más de mí</span>
+      <i class="fas fa-chevron-down animate-bounce"></i>
+    </a>
+  </div>
+</section>
+
+<style>
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  
+  .cursor {
+    animation: blink 1s infinite;
+  }
+</style>
+
+<script>
+  // Typed text effect
+  document.addEventListener('DOMContentLoaded', function() {
+    const texts = [
+      "Desarrollador Back-End",
+      "Desarrollador Front-End",
+      "Apasionado por la Tecnología",
+      "Especialista en Python y Django"
+    ];
+    
+    const element = document.getElementById('typed-text');
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 100;
+    
+    function type() {
+      const currentText = texts[textIndex];
+      
+      if (isDeleting) {
+        if (element) element.textContent = currentText.substring(0, charIndex - 1);
+        charIndex--;
+        typingSpeed = 50;
+      } else {
+        if (element) element.textContent = currentText.substring(0, charIndex + 1);
+        charIndex++;
+        typingSpeed = 100;
+      }
+      
+      if (!isDeleting && charIndex === currentText.length) {
+        isDeleting = true;
+        typingSpeed = 1000; // Pause at end
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        textIndex = (textIndex + 1) % texts.length;
+        typingSpeed = 500; // Pause before typing next
+      }
+      
+      setTimeout(type, typingSpeed);
+    }
+    
+    setTimeout(type, 1000);
+    
+    // Simple particles effect
+    const particlesContainer = document.getElementById('particles-container');
+    if (particlesContainer) {
+      for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // Random position
+        const posX = Math.random() * 100;
+        const posY = Math.random() * 100;
+        
+        // Random size
+        const size = Math.random() * 4 + 1;
+        
+        // Random opacity
+        const opacity = Math.random() * 0.5 + 0.1;
+        
+        // Random animation duration
+        const duration = Math.random() * 20 + 10;
+        
+        // Apply styles
+        particle.style.cssText = `
+          position: absolute;
+          top: ${posY}%;
+          left: ${posX}%;
+          width: ${size}px;
+          height: ${size}px;
+          background-color: ${Math.random() > 0.5 ? '#14F195' : '#5865F2'};
+          border-radius: 50%;
+          opacity: ${opacity};
+          pointer-events: none;
+          animation: float ${duration}s linear infinite;
+        `;
+        
+        particlesContainer.appendChild(particle);
+      }
+    }
+  });
+  
+  // Add float animation
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes float {
+      0% {
+        transform: translateY(0) translateX(0);
+      }
+      25% {
+        transform: translateY(-20px) translateX(10px);
+      }
+      50% {
+        transform: translateY(0) translateX(20px);
+      }
+      75% {
+        transform: translateY(20px) translateX(10px);
+      }
+      100% {
+        transform: translateY(0) translateX(0);
+      }
+    }
+  `;
+  document.head.appendChild(style);
+</script>
