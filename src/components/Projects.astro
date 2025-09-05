@@ -23,7 +23,31 @@ const projects = [
     category: "web",
     technologies: ["Astro", "JavaScript", "CSS"],
     link: "https://tssaraiabigail.vercel.app/"
-  }
+  },
+  {
+      title: "Desarrollo KenkoMed Landing Page",
+      description: "Lider de Proyecto en el desarrollo de la Landing Page de KenkoMed.",
+      image: "/logokenko.jpeg",
+      category: "web",
+      technologies: ["vue", "Tailwind", "Typescriptt"],
+      link: "https://kenkomed.cl/"
+    },
+    {
+      title : "desarrollo KenkoMed System",
+      description: "Desarrollo de herramienta de soporte a la decision clinica para kinesiologos y terapeutas.",
+      image: "/skenko.png",
+      category: "web",
+      technologies: ["Django", "chart.js", "CSS/tailwind"],
+      link: "https://kenkomed.cl/"
+    },
+    {
+      title : "Slam Jam ",
+      description: "Aplicacion movil para el encuentro de bandas de la 8va region , chile ",
+      image: "/Untitled.png",
+      category: "mobile",
+      technologies: ["Android Studio", "Kotlin", "Firebase"],
+      link: "https://github.com/RazeZor/Proyecto_Slam_Jam",
+    }
 ];
 ---
 
@@ -50,11 +74,6 @@ const projects = [
                 {project.link && (
                   <a href={project.link} class="project-link" target="_blank" rel="noopener noreferrer">
                     <i class="fas fa-external-link-alt"></i>
-                  </a>
-                )}
-                {project.github && (
-                  <a href={project.github} class="project-link" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-github"></i>
                   </a>
                 )}
               </div>
@@ -112,7 +131,7 @@ const projects = [
     border-radius: 8px;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 100%;
+    height: 90%;
     display: flex;
     flex-direction: column;
   }
